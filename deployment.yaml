@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: age-calculator
+  name: age-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: age-calculator
+  template:
+    metadata:
+      labels:
+        app: age-calculator
+    spec:
+      containers:
+      - image: pawanksry97/age-cal-fastapi:v0.1
+        name: age-cal-fastapi
+        ports:
+        - containerPort: 8000
